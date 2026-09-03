@@ -1,8 +1,10 @@
-<article>
-  <h2>{{ taskData().title }}</h2>
-  <time>{{ taskData().dueDate | date: "short" }}</time>
-  <p>{{ taskData().summary }}</p>
-  <p class="actions" (click)="onCompleteTask()">
-    <button>Complete</button>
-  </p>
-</article>
+<app-card>
+  <article>
+    <h2>{{ taskData().title }}</h2>
+    <time>{{ taskData().dueDate | date: "EEEE, dd/MM/yyyy" }}</time>
+    <p>{{ taskData().summary }}</p>
+    <p class="actions" (click)="onCompleteTask()">
+      <button>Complete</button>
+    </p>
+  </article>
+</app-card>
