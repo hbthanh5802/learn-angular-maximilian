@@ -1,0 +1,34 @@
+<div class="task-list">
+  <div class="add-row">
+    <input
+      [(ngModel)]="taskTitle"
+      (keyup.enter)="addTask()"
+      placeholder="Thêm task mới..."
+    />
+    <button (click)="addTask()">Thêm</button>
+  </div>
+
+  <div class="add-row">
+    <select [(ngModel)]="statusFilter">
+      <option value="all">Tất cả</option>
+      <option value="done">Đã xong</option>
+      <option value="pending">Chưa xong</option>
+    </select>
+  </div>
+
+  @for (task of tasks() | filterByStatus: statusFilter; track task.id) {
+    <div class="task-item" [class.done]="task.done">
+      <label>
+        <input
+          type="checkbox"
+          [checked]="task.done"
+          (change)="toggleDone(task.id)"
+        />
+        <span>{{ task.title }}</span>
+      </label>
+      <button (click)="removeTask(task.id)">Xóa</button>
+    </div>
+  } @empty {
+    <p class="empty-state">Chưa có task nào.</p>
+  }
+</div>

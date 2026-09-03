@@ -1,0 +1,28 @@
+@if (isOpenTaskForm()) {
+  <app-task-form
+    (onCancel)="onCancelCreateTaskBtnClick()"
+    (onSubmit)="onSubmitCreateTask($event)"
+  />
+}
+
+<section id="tasks">
+  @if (currentUser()) {
+    <header>
+      <h2>{{ currentUser()?.name }}'s Tasks</h2>
+      <menu>
+        <button (click)="onCreateTaskBtnClick()">Add Task</button>
+      </menu>
+    </header>
+
+    <ul>
+      @for (task of currentUserTaskList(); track task.id) {
+        <li>
+          <app-task
+            [taskData]="task"
+            (onComplete)="handleCompleteTask($event)"
+          />
+        </li>
+      }
+    </ul>
+  }
+</section>

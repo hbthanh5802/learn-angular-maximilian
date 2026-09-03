@@ -1,0 +1,6 @@
+<div>
+  <button [class.active]="isSelected()" (click)="onClick()">
+    <img [src]="fullAvatarPath()" alt="{{ name() }}" />
+    <span>{{ name() }}</span>
+  </button>
+</div>
