@@ -1,9 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { dummyTasks } from '../dummy-tasks';
+import { Task } from '../dummy-tasks';
 import { CardComponent } from '../shared/card/card.component';
-
-type Task = (typeof dummyTasks)[0];
 
 @Component({
   selector: 'app-task',

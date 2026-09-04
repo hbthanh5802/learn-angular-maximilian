@@ -23,3 +23,5 @@ export const dummyTasks = [
     dueDate: '2024-06-15',
   },
 ];
+
+export type Task = (typeof dummyTasks)[0];
