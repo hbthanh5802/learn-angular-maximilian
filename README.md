@@ -1,4 +1,4 @@
-# Lộ trình Angular cô đọng — v2 (đã tinh chỉnh)
+# Lộ trình Angular cô đọng — v3 (đã bỏ Mosh, dùng Angular University)
 
 > Dành cho: Dev đã biết React/TS, muốn học nhanh, học qua project ngay từ đầu thay vì học hết lý thuyết mới thực hành.
 
@@ -13,18 +13,22 @@
 
 ## Nguồn học
 
-| Vai trò                                          | Nguồn                                                     |
-| ------------------------------------------------ | --------------------------------------------------------- |
-| Map tổng thể nhanh                               | **Mosh — Angular Crash Course for Busy Developers**       |
-| Đào sâu Modern Angular (Signals/CD/Zoneless)     | **Kobi — Modern Angular with Signals: The Missing Guide** |
-| DI / Forms / HTTP / Router / RxJS / Architecture | Roadmap + **Angular official docs** + thực hành project   |
-| Biến kiến thức thành kỹ năng                     | **Project xuyên suốt 6 tuần**, không tách riêng           |
+> ⚠️ Đã bỏ Mosh's Angular Crash Course — kiểm tra lại thì đây thực chất là "Angular 4 Crash Course" (~2018), nhiều phần HTTP/binding đã lỗi thời theo report trên chính forum của Mosh. Học mental model NgModule cũ rồi phải unlearn sang standalone/signals sẽ chậm hơn, không đúng mục tiêu "đi nhanh".
+
+| Vai trò                                                           | Nguồn                                                                                  |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Nền tảng Angular Core (Component, Template, DI, CD, Lifecycle...) | **Angular University — Angular Deep Dive (Angular 22)**, update 8/2026, uy tín lâu năm |
+| Đào sâu Modern Angular (Signals/CD/Zoneless)                      | **Kobi — Modern Angular 22 with Signals: The Missing Guide**                           |
+| DI / Forms / HTTP / Router / RxJS / Architecture                  | Roadmap + **Angular official docs (angular.dev)** + thực hành project                  |
+| Biến kiến thức thành kỹ năng                                      | **Project xuyên suốt 6 tuần**, không tách riêng                                        |
+
+**Lưu ý quan trọng:** đừng xem "Angular Deep Dive" theo tốc độ người mới học — bạn có React/TS nên: xem concept → tự so sánh React → skip phần JS/TS cơ bản → code lại ngay. Không cần thêm khóa riêng cho RxJS/Forms/Router — 2 khóa trên + docs + project là đủ; đừng mua thêm 5-6 khóa nữa.
 
 ---
 
 ## Timeline 6 tuần (2h/ngày) — có project xuyên suốt
 
-### Week 1 — Angular Core
+### Week 1 — Angular Core (nguồn: Angular Deep Dive)
 
 **Phải thành thạo:** Component · Template · Input/Output · `@if`/`@for` + `track`
 **Chỉ cần hiểu (project sẽ ép đào sâu sau):** Directive · Pipe · Lifecycle · Standalone
@@ -38,7 +42,7 @@ UserList
  └── UserDetail
 ```
 
-### Week 2 — Angular Mental Model (DI + Signals)
+### Week 2 — Angular Mental Model (DI + Signals) (nguồn: Angular Deep Dive + Kobi)
 
 DI: Provider · Injector · Service · Facade
 Signals: `signal` · `computed` · `effect` · `input()`/`output()`/`model()`
@@ -55,7 +59,7 @@ UserComponent → UserFacade → UserService
 state = signal(...) / derived = computed(...)
 ```
 
-### Week 3 — Application Infrastructure (Router + HTTP)
+### Week 3 — Application Infrastructure (Router + HTTP) (nguồn: docs + project)
 
 Router: Routes · Params · Query params · Guards · Lazy loading
 HTTP: HttpClient · Interceptor · Error handling · Auth token
@@ -66,13 +70,13 @@ HTTP: HttpClient · Interceptor · Error handling · Auth token
 /login  /users  /users/:id  /tasks
 ```
 
-### Week 4 — Forms
+### Week 4 — Forms (nguồn: docs + project — master Reactive Forms trước, Signal Forms học sau nếu cần)
 
 Reactive Forms: FormControl · FormGroup · FormArray · Validators · Custom/Async Validator · `valueChanges`/`statusChanges`
 
 🎯 Output tuần này (mở rộng project): `UserForm`, `TaskForm`
 
-### Week 5 — RxJS (trọng tâm lớn nhất)
+### Week 5 — RxJS (trọng tâm lớn nhất) (nguồn: RxJS official docs + Angular Deep Dive phần CD + tự code)
 
 Phân bổ thời gian:
 
@@ -90,7 +94,7 @@ Học: `Observable`, `Subscription`, `map/filter/tap`, `switchMap/mergeMap/conca
 Search → debounce → switchMap → HTTP → toSignal → Template
 ```
 
-### Week 6 — Architecture + Performance + Refactor project
+### Week 6 — Architecture + Performance + Refactor project (nguồn: Kobi phần Zoneless + project)
 
 Change Detection (đào sâu tiếp): OnPush · Signals+OnPush · Zoneless
 Feature architecture · Facade · State management overview (khi nào cần NgRx) · Auth flow đầy đủ · Performance overview
