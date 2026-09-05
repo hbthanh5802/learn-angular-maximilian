@@ -1,4 +1,4 @@
-# Lộ trình Angular cô đọng — v3 (đã bỏ Mosh, dùng Angular University)
+# Lộ trình Angular cô đọng
 
 > Dành cho: Dev đã biết React/TS, muốn học nhanh, học qua project ngay từ đầu thay vì học hết lý thuyết mới thực hành.
 
@@ -19,7 +19,7 @@
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | Nền tảng Angular Core (Component, Template, DI, CD, Lifecycle...) | **Angular University — Angular Deep Dive (Angular 22)**, update 8/2026, uy tín lâu năm |
 | Đào sâu Modern Angular (Signals/CD/Zoneless)                      | **Kobi — Modern Angular 22 with Signals: The Missing Guide**                           |
-| DI / Forms / HTTP / Router / RxJS / Architecture                  | Roadmap + **Angular official docs (angular.dev)** + thực hành project                  |
+| DI / Forms / HTTP / Router / RxJS / Architecture                  | Roadmap +**Angular official docs (angular.dev)** + thực hành project                   |
 | Biến kiến thức thành kỹ năng                                      | **Project xuyên suốt 6 tuần**, không tách riêng                                        |
 
 **Lưu ý quan trọng:** đừng xem "Angular Deep Dive" theo tốc độ người mới học — bạn có React/TS nên: xem concept → tự so sánh React → skip phần JS/TS cơ bản → code lại ngay. Không cần thêm khóa riêng cho RxJS/Forms/Router — 2 khóa trên + docs + project là đủ; đừng mua thêm 5-6 khóa nữa.
