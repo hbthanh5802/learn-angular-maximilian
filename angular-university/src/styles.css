@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none; /* Chặn cả thao tác vuốt cuộn trên điện thoại */
+}

@@ -1,0 +1,50 @@
+<div class="app-dropdown" [class.is-disabled]="disabled()">
+  <div class="input-wrapper">
+    <input
+      type="text"
+      [placeholder]="placeholder()"
+      [value]="selectedItem()?.label"
+      [disabled]="disabled()"
+      readonly
+      class="app-dropdown-input"
+      (click)="onToggleOpen()"
+    />
+    <span class="dropdown-arrow"></span>
+  </div>
+
+  @if (isOpened()) {
+    <div class="app-dropdown-panel">
+      @for (item of items(); track item.value) {
+        <div
+          role="button"
+          class="dropdown-option"
+          [class.selected]="isItemSelected(item)"
+          [class.disabled]="isItemDisabled(item)"
+          (click)="onSelectedItem(item)"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              renderItem() || defaultItem;
+              context: {
+                $implicit: item,
+                disabled: isItemDisabled(item),
+                selected: isItemSelected(item),
+              }
+            "
+          ></ng-container>
+        </div>
+      } @empty {
+        <div class="dropdown-empty">Không có dữ liệu</div>
+      }
+    </div>
+  }
+</div>
+
+<ng-template #defaultItem let-item let-selected="selected">
+  <div class="default-item-content">
+    <span>{{ item.label }}</span>
+    @if (selected) {
+      <span class="checkmark">✓</span>
+    }
+  </div>
+</ng-template>

@@ -1,2 +1,26 @@
-<p>Welcome to {{ title() | uppercase }}</p>
-<app-course-card />
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<main style="padding: 40px">
+  <button (click)="showLoading()">Click here</button>
+
+  <p appHighlight #highlight1 style="width: fit-content">HOVER ME</p>
+  <p appHighlight [highlightColor]="'blue'" style="width: fit-content">HOVER ME</p>
+
+  @if (isLoading()) {
+    <ng-container *ngTemplateOutlet="loading"></ng-container>
+  }
+
+  <div style="padding: 4px 0">
+    <app-dropdown
+      [items]="dropdownItems"
+      (select)="onDropdownSelected($event)"
+      [renderItem]="renderItem"
+    />
+  </div>
+</main>
+
+<ng-template #renderItem let-item let-disabled="disabled">
+  <p>{{ item.value }}</p>
+</ng-template>
