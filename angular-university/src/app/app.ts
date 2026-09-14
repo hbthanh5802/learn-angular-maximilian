@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Dropdown } from './features/dropdown/dropdown';
 import { DropdownChangeEvent, DropdownItem } from './features/dropdown/dropdown.type';
 import { HighlightDirective } from "./shared/directives/highlight.directive";
+import { LazyRenderDirective } from "./shared/directives/lazy-render.directive";
+import { RepeaterDirective } from "./shared/directives/repeater.directive";
+import { TooltipDirective } from './shared/directives/tooltip.directive';
+import { UnlessDirective } from "./shared/directives/unless.directive";
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgTemplateOutlet, Dropdown, HighlightDirective],
+  imports: [FormsModule, NgTemplateOutlet, Dropdown, HighlightDirective, TooltipDirective, UnlessDirective, RepeaterDirective, LazyRenderDirective],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -31,8 +35,12 @@ export class App {
     value: 'B'
   }]
 
+  items = Array.from(
+    { length: 50 },
+    (_, index) => index + 1
+  );
+
   ngAfterViewInit() {
-    console.log(this.highlight1)
   }
 
   showLoading() {

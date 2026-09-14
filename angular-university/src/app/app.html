@@ -24,3 +24,54 @@
 <ng-template #renderItem let-item let-disabled="disabled">
   <p>{{ item.value }}</p>
 </ng-template>
+
+<!-- TOOLTIP -->
+<div style="padding: 60px">
+  <!-- Case 1: Tooltip dạng text đơn giản -->
+  <button appTooltip #t1="appTooltip" class="btn" *appUnless="true; else buttonElse">
+    Rê chuột vào tôi
+
+    @if (t1.isVisible()) {
+      <div class="tooltip-bubble">Đây là tooltip dạng văn bản thuần</div>
+    }
+  </button>
+
+  <ng-template #buttonElse>
+    <p>RÊ MEEE</p>
+  </ng-template>
+
+  <br /><br />
+
+  <!-- Case 2: Tooltip dạng Card phức tạp (Avatar + Text + Nút bấm) -->
+  <span appTooltip #t2="appTooltip" class="badge">
+    Xem hồ sơ rút gọn
+
+    @if (t2.isVisible()) {
+      <div class="tooltip-bubble card-style">
+        <div class="user-card">
+          <span class="avatar">👨‍💻</span>
+          <div>
+            <strong>Hoàng Bá Thanh</strong>
+            <p>Frontend Developer</p>
+          </div>
+        </div>
+        <button (click)="t2.hide()" class="btn-sm">Đóng</button>
+      </div>
+    }
+  </span>
+</div>
+
+<ng-container *appRepeater="items; let item; let index = index">
+  <!-- Khoảng cách giữa các item -->
+  <div style="height: 250px; margin-bottom: 30px; border: 1px solid #ccc; padding: 20px">
+    <p>Item container: {{ index }}</p>
+
+    <!-- Lazy Render -->
+    <div *appLazyRender>
+      <section class="section">
+        <h2>🔥 Lazy Content {{ item }}</h2>
+        <p>Item này chỉ được render khi gần viewport.</p>
+      </section>
+    </div>
+  </div>
+</ng-container>

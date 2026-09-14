@@ -13,3 +13,70 @@ body.no-scroll {
   overflow: hidden;
   touch-action: none; /* Chặn cả thao tác vuốt cuộn trên điện thoại */
 }
+
+/* Bong bóng tooltip chung */
+.tooltip-bubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  pointer-events: auto;
+}
+
+/* Mũi tên nhỏ bên dưới tooltip */
+.tooltip-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent transparent;
+}
+
+/* Biến thể Card giao diện phong phú */
+.card-style {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.card-style::after {
+  border-color: #fff transparent transparent transparent;
+}
+
+.user-card {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.avatar {
+  font-size: 24px;
+}
+.btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.btn-sm {
+  font-size: 11px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.badge {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #2563eb;
+}
